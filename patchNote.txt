@@ -1,0 +1,5 @@
+Alpha 
+v0.01.0 = structure finalisé 
+
+** next step **
+vrai contenu

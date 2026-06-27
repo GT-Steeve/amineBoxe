@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amine "BENCHIA" — Boxeur Professionnel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🥊 <span>BENCHIA</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#photos">Photos</a></li>
+                <li><a href="#videos">Vidéos</a></li>
+                <li><a href="#palmares">Palmarès</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+
+        <div class="gloves gloves-left">🥊</div>
+        <div class="gloves gloves-right">🥊</div>
+
+        <div class="hero-content">
+            <h1 class="reveal">
+                Amine
+                <span class="nickname">"BENCHIA"</span>
+            </h1>
+            <p class="subtitle reveal">Boxeur Professionnel · L'Indomptable</p>
+
+            <div class="stats reveal">
+                <div class="stat">
+                    <span class="stat-number" data-target="99">X</span>
+                    <span class="stat-label">Victoires</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="99">X</span>
+                    <span class="stat-label">Défaites</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="99">X</span>
+                    <span class="stat-label">KO</span>
+                </div>
+            </div>
+
+            <div class="hero-actions reveal">
+                <a href="#photos" class="btn btn-ghost">Voir les Photos</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title reveal">À <span class="red">Propos</span></h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        Après un an loin des rings, Amine "BENCHIA" n'a pas baissé les bras. Il a choisi de tout reconstruire, méthodiquement, au <strong>Courbevoie Boxing Club</strong> — là où les vraies carrières se forgent dans la sueur et la discipline.
+                    </p>
+                    <p>
+                        Depuis sa reprise, il monte les échelons un à un, dominant chaque adversaire à sa mesure avec une maturité nouvelle. Chaque victoire est une réponse. Chaque combat, une déclaration. Jusqu'où ira-t-il ? La réponse se construit, round après round.
+                    </p>
+                    <div class="about-tags">
+                        <span class="tag">⚡ Esquive</span>
+                        <span class="tag">🎯 Précision</span>
+                        <span class="tag">💪 Endurance</span>
+                        <span class="tag">🧠 Stratégie</span>
+                    </div>
+                </div>
+                <div class="highlight-box reveal">
+                    <h3>Style de Combat</h3>
+                    <p>Boxeur offensif avec une garde serrée et des contre-attaques explosives. Spécialiste des uppercuts et des crochets au corps qui ont mis fin à de nombreux combats avant la limite.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section class="section dark-section" id="photos">
+        <div class="container">
+            <h2 class="section-title reveal">Galerie <span class="red">Photos</span></h2>
+            <div class="carousel-container reveal">
+                <div class="carousel" id="photoCarousel">
+                    <div class="carousel-item">
+                        <img src="asset/img/stand3.png" alt="Amine Benchia en position">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="asset/img/stand2.png" alt="Amine Benchia garde">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="asset/img/stand1.png" alt="Amine Benchia combat">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="asset/img/interview1.png" alt="Amine Benchia interview">
+                    </div>
+                </div>
+                <button class="carousel-button prev" onclick="moveCarousel('photo', -1)" aria-label="Précédent">&#8249;</button>
+                <button class="carousel-button next" onclick="moveCarousel('photo', 1)" aria-label="Suivant">&#8250;</button>
+                <div class="carousel-dots" id="photoCarouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDÉOS -->
+    <section class="section" id="videos">
+        <div class="container">
+            <h2 class="section-title reveal">Galerie <span class="red">GIFs</span></h2>
+            <div class="video-carousel-container reveal">
+                <div class="video-carousel" id="videoCarousel">
+                    <div class="video-carousel-item">
+                        <img src="asset/gif/gif1.gif" alt="Amine Benchia - action 1">
+                    </div>
+                    <div class="video-carousel-item">
+                        <img src="asset/gif/gif2.gif" alt="Amine Benchia - action 2">
+                    </div>
+                    <div class="video-carousel-item">
+                        <img src="asset/gif/gif3.gif" alt="Amine Benchia - action 3">
+                    </div>
+                </div>
+                <button class="carousel-button prev" onclick="moveCarousel('video', -1)" aria-label="Précédent">&#8249;</button>
+                <button class="carousel-button next" onclick="moveCarousel('video', 1)" aria-label="Suivant">&#8250;</button>
+                <div class="carousel-dots" id="videoCarouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PALMARÈS -->
+    <section class="section dark-section" id="palmares">
+        <div class="container">
+            <h2 class="section-title reveal">Main<span class="red">Event</span></h2>
+            <div class="achievements">
+                <div class="achievement-card reveal" style="background-image: url('asset/img/stand1.png')">
+                    <div class="achievement-glow"></div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Benchia vs Morales</h3>
+                        <p class="fight-event">Night of Champions · Paris</p>
+                        <p class="fight-date">14 Février 2025</p>
+                    </div>
+                </div>
+                <div class="achievement-card reveal" style="background-image: url('asset/img/stand2.png')">
+                    <div class="achievement-glow"></div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Benchia vs El Fassi</h3>
+                        <p class="fight-event">Capital Fight Night · Lyon</p>
+                        <p class="fight-date">9 Novembre 2024</p>
+                    </div>
+                </div>
+                <div class="achievement-card reveal" style="background-image: url('asset/img/stand3.png')">
+                    <div class="achievement-glow"></div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Benchia vs Tavares</h3>
+                        <p class="fight-event">Fightback Series · Nanterre</p>
+                        <p class="fight-date">21 Juin 2024</p>
+                    </div>
+                </div>
+                <div class="achievement-card reveal" style="background-image: url('asset/img/interview1.png')">
+                    <div class="achievement-glow"></div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Benchia vs ???</h3>
+                        <p class="fight-event">À venir · 2025</p>
+                        <p class="fight-date">Adversaire non annoncé</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Con<span class="red">tact</span></h2>
+            <p class="contact-sub reveal">Pour les demandes de combat, sponsoring ou interviews</p>
+            <button class="btn btn-primary reveal" onclick="openModal()">Envoyer un message</button>
+
+            <div class="social-links reveal">
+                <a href="#" class="social-link" title="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Amine "BENCHIA" · Tous droits réservés · Fait avec 🥊</p>
+    </footer>
+
+    <!-- MODAL CONTACT -->
+    <div class="modal-overlay" id="contactModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()" aria-label="Fermer">&times;</button>
+            <h3 class="modal-title">Envoyer un <span class="red">message</span></h3>
+            <p class="modal-contact-label">Contactez-nous par email</p>
+            <a href="mailto:contact@aminebenchia.com" class="modal-email">contact@aminebenchia.com</a>
+        </div>
+    </div>
+
+    <script src="asset/js/main.js"></script>
+</body>
+</html>
