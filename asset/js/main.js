@@ -97,9 +97,9 @@ document.querySelectorAll('.highlight-box').forEach(el => barObserver.observe(el
 const carousels = {
     photo: {
         element: document.getElementById('photoCarousel'),
-        dotsContainer: document.getElementById('photoCarouselDots'),
+        dotsContainer: null,
         currentIndex: 0,
-        itemCount: 4
+        itemCount: 16
     },
     video: {
         element: document.getElementById('videoCarousel'),
@@ -114,10 +114,12 @@ function initCarousels() {
         createDots(type);
         updateCarousel(type);
     });
+    updatePhotoCarouselHeight();
 }
 
 function createDots(type) {
     const c = carousels[type];
+    if (!c.dotsContainer) return;
     for (let i = 0; i < c.itemCount; i++) {
         const dot = document.createElement('div');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -141,10 +143,57 @@ function goToSlide(type, index) {
 function updateCarousel(type) {
     const c = carousels[type];
     c.element.style.transform = `translateX(-${c.currentIndex * 100}%)`;
-    c.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === c.currentIndex);
-    });
+    if (type === 'photo') {
+        const counter = document.getElementById('photoCounter');
+        if (counter) counter.textContent = `${c.currentIndex + 1} / ${c.itemCount}`;
+        updatePhotoCarouselHeight();
+    }
+    if (c.dotsContainer) {
+        c.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === c.currentIndex);
+        });
+    }
 }
+
+// === HAUTEUR DYNAMIQUE CAROUSEL PHOTO ===
+function updatePhotoCarouselHeight() {
+    if (document.fullscreenElement) return;
+    const c = carousels.photo;
+    const items = c.element.querySelectorAll('.carousel-item');
+    const img = items[c.currentIndex]?.querySelector('img');
+    if (!img) return;
+    const container = c.element.closest('.carousel-container');
+    const apply = () => {
+        if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+            container.style.height = (container.offsetWidth * img.naturalHeight / img.naturalWidth) + 'px';
+        }
+    };
+    if (img.complete && img.naturalWidth > 0) apply();
+    else img.addEventListener('load', apply, { once: true });
+}
+
+window.addEventListener('resize', updatePhotoCarouselHeight);
+
+// === PLEIN ÉCRAN ===
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const iconExpand = `<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>`;
+const iconCompress = `<svg viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>`;
+
+function toggleFullscreen() {
+    const container = document.querySelector('.carousel-container');
+    if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(() => {});
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+document.addEventListener('fullscreenchange', () => {
+    if (fullscreenBtn) {
+        fullscreenBtn.innerHTML = document.fullscreenElement ? iconCompress : iconExpand;
+    }
+    if (!document.fullscreenElement) updatePhotoCarouselHeight();
+});
 
 // Touch swipe support
 let touchStartX = 0;
