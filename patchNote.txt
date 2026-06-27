@@ -1,6 +1,7 @@
 Alpha 
 v0.01.0 = structure finalisé 
 v0.02.0 = favicon + image lien
+v0.02.1 = mobile image intro
 
 ** next step **
 vrai contenu
